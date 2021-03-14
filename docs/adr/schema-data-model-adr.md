@@ -28,4 +28,4 @@ A single container can have unlimited child schema entities (one container to ma
 # Implications & Additional Changes
 
 * There can be many schema entities for a single container
-* The backend service should allow for paging or pagination
+* The backend service should allow for paging or pagination of schema's
