@@ -24,6 +24,6 @@ The frontend page should load a business maximum of jsonschema's and then prompt
 * An entity called container that will be a container (i.e. application) and parent entity that has fields: Title, Type, ContainerId
 * An entity called schema that will be the child that has fields: SchemaId, Title, Type, Jsonschema, Uischema, ContainerId
 
-
+<img src="Data_Model__schema.png" />
 
 # Implications & Additional Changes
