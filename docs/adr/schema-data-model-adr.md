@@ -16,8 +16,7 @@ The goal of the Data Model ADR is to define the data model design for Applicatio
 
 # Considerations
 
-A page can have unlimited child jsonschema's that is loaded via paging or infinite scrolling. move this to service that will support paging. 
-The frontend page should load a business maximum of jsonschema's and then prompt the user either via scroll or paged numbers to load the additional json schema items that will then be fetched from the server.
+A single container can have unlimited child schema entities (one container to many schema) that is loaded via paging or infinite scrolling or object loading. The frontend page should load a business maximum of jsonschema's and then prompt the user either via scroll or paged numbers to load the additional json schema items that will then be fetched from the server.
 
 # Proposed Design
 
@@ -27,3 +26,6 @@ The frontend page should load a business maximum of jsonschema's and then prompt
 <img src="Data_Model__schema.png" />
 
 # Implications & Additional Changes
+
+* There can be many schema entities for a single container
+* The backend service should allow for paging or pagination
