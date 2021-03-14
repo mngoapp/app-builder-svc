@@ -21,7 +21,7 @@ A single container can have unlimited child schema entities (one container to ma
 # Proposed Design
 
 * An entity called container that will be a container (i.e. application) and parent entity that has fields: Title, Type, ContainerId
-* An entity called schema that will be the child that has fields: SchemaId, Title, Type, Jsonschema, Uischema, ContainerId
+* An entity called schema that will be the main vehicle for the json schema. Schema will be a child item to container that has fields: SchemaId, Title, Type, Jsonschema, Uischema, ContainerId. Schema has parent reference via the ContainerId column.
 
 <img src="Data_Model__schema.png" />
 
