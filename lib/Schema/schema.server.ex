@@ -35,15 +35,15 @@ defmodule Schema.Server do
         {:reply, results, state}
     end
 
-    def handle_cast({:update, id, title, type, jsonSchema, uiSchema}, state) do
+    def handle_cast({:update, id, title, type, schema, uiSchema}, state) do
         # Call functional core library
-        Core.update(id, title, type, jsonSchema, uiSchema)
+        Core.update(id, title, type, schema, uiSchema)
         {:noreply, state}
     end
 
-    def handle_cast({:save, title, type, jsonSchema, uiSchema}, state) do
+    def handle_cast({:save, title, type, schema, uiSchema}, state) do
         # Call functional core library
-        Core.save(title, type, jsonSchema, uiSchema)
+        Core.save(title, type, schema, uiSchema)
         {:noreply, state}
     end
 

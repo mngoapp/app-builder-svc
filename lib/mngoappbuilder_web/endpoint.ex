@@ -48,5 +48,5 @@ defmodule MngoAppBuilderWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug ConstanceWeb.Router
+  plug MngoAppBuilderWeb.Router
 end
