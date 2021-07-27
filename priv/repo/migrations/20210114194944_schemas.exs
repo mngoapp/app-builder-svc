@@ -5,8 +5,8 @@ defmodule Builder.Repo.Migrations.CreateSchemas do
     create table(:schemas) do
       add :title, :string
       add :type, :string
-      add :jsonschema, :map
-      add :uischema, :map
+      add :schema, :string
+      add :uischema, :string
       add :container_id, references(:containers)
       timestamps()
     end
