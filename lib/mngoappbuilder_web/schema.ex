@@ -23,8 +23,4 @@ defmodule MngoAppBuilderWeb.Schema do
   def plugins do
     [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
   end
-
-#   def middleware(middleware, _field, _object) do
-#     [NewRelic.Absinthe.Middleware] ++ middleware
-#   end
 end
