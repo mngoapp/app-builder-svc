@@ -17,8 +17,8 @@
 defmodule Schema.Core do
     import Ecto.Query, only: [from: 2]
     # Handle Put - Updates (or Inserts the value if it does not exist in the cache)
-    def save(title, type, schema, uischema) do
-        {result, setting} = Builder.Repo.insert(%Builder.Model.Schema{title: title, type: type, schema: schema, uischema: uischema})
+    def save(title, type, schema, uischema, container) do
+        {result, setting} = Builder.Repo.insert(%Builder.Model.Schema{title: title, type: type, schema: schema, uischema: uischema, container_id: container})
         result
     end
 

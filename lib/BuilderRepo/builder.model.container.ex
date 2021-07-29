@@ -1,5 +1,6 @@
 defmodule Builder.Model.Container do
   use Ecto.Schema
+  use Builder.Model
   import Ecto.Changeset
   @derive {Jason.Encoder, only: [:title, :type], except: [:__meta__, :__struct__]}
   #@derive {Jason.Encoder, except: [:__meta__, :__struct__]}

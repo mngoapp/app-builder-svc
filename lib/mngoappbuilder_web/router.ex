@@ -23,14 +23,26 @@ defmodule MngoAppBuilderWeb.Router do
     delete "/schemas/:key", SchemaController, :delete
   end
 
+scope "/" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: MngoAppBuilderWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: MngoAppBuilderWeb.Endpoint}
+  end
+
+
   # Handle Pages
   pipeline :browser do
     plug(:accepts, ["html"])
   end
 
-  scope "/", MngoAppBuilderWeb do
+  scope "/" do
+
     pipe_through :browser
-    get "/", DefaultController, :index
+
+    get "/", MngoAppBuilderWeb.DefaultController, :index
   end
 
   # Enables LiveDashboard only for development

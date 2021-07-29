@@ -41,9 +41,9 @@ defmodule Schema.Server do
         {:noreply, state}
     end
 
-    def handle_cast({:save, title, type, schema, uiSchema}, state) do
+    def handle_cast({:save, title, type, schema, uiSchema, container}, state) do
         # Call functional core library
-        Core.save(title, type, schema, uiSchema)
+        Core.save(title, type, schema, uiSchema, container)
         {:noreply, state}
     end
 

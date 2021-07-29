@@ -8,7 +8,7 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :mngoappbuilder, MngoAppBuilderWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: 4010],
   debug_errors: true,
   code_reloader: false,
   check_origin: false,
