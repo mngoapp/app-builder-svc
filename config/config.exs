@@ -25,7 +25,8 @@ config :mngoappbuilder, Builder.Repo,
   database: "mngo-builder",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost"
+  hostname: "localhost",
+  port: 5433
 
 #config :friends, ecto_repos: [Friends.Repo]
   # OR use a URL to connect instead

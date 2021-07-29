@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "aec708c7-10a2-4ec5-b1ab-90a09ef1f41f",
+		"name": "Mango",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Containers",
+			"item": [
+				{
+					"name": "Save Container - POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"John Page\",\n    \"type\": \"PAGE\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4010/api/containers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4010",
+							"path": [
+								"api",
+								"containers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schema",
+			"item": [
+				{
+					"name": "Save Schema - POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"John Page\",\n    \"type\": \"PAGE\",\n    \"schema\":\"asdfsadf\",\n    \"uischema\":\"asdf\",\n    \"container\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4010/api/schemas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4010",
+							"path": [
+								"api",
+								"schemas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

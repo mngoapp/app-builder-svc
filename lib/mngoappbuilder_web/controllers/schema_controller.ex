@@ -23,9 +23,10 @@ defmodule MngoAppBuilderWeb.SchemaController do
     "title" => title,
     "type" => type,
     "schema" => schema,
-    "uischema" => uischema
+    "uischema" => uischema,
+    "container" => container
   } = params) do
-    GenServer.cast(:schema_gen_server,{:save,title,type,schema,uischema})
+    GenServer.cast(:schema_gen_server,{:save,title,type,schema,uischema,container})
     json conn |> put_status(:created), params
   end
 
