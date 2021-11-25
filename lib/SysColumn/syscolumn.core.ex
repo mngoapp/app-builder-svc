@@ -14,17 +14,19 @@
 # Schema.Core.update(1,"Page","PAGE","someschema","uischema")
 # Schema.Core.delete_by_id(1)
 # Schema.Core.get_by_id(1)
-defmodule Core.Schema do
+defmodule Core.SysColumn do
     import Ecto.Query, only: [from: 2]
     # Handle Put - Updates (or Inserts the value if it does not exist in the cache)
-    def save(title, type, schema, uischema, container) do
-        {result, setting} = Builder.Repo.insert(%Builder.Model.Schema{title: title, type: type, schema: schema, uischema: uischema, container_id: container})
+    def save(table_name, column_name, ordinal_position, is_nullable, data_type) do
+        {result, syscolumn} = Builder.Repo.insert(%Builder.Model.SysColumn{
+            table_name: table_name, column_name: column_name, ordinal_position: ordinal_position, is_nullable: is_nullable, data_type: data_type
+            })
         result
     end
 
-    def update(id, title, type) do
-        setting = Builder.Repo.get!(Builder.Model.Schema, id)
-        setting = Ecto.Changeset.change setting, title: title, type: type
+    def update(id, table_name, column_name, ordinal_position, is_nullable, data_type) do
+        setting = Builder.Repo.get!(Builder.Model.SysColumn, id)
+        setting = Ecto.Changeset.change setting, table_name: table_name, column_name: column_name, ordinal_position: ordinal_position, is_nullable: is_nullable, data_type: data_type
         case Builder.Repo.update setting do
         {:ok, struct}       -> IO.puts "i updated " # Updated with success
         {:error, changeset} -> # Something went wrong
@@ -32,21 +34,21 @@ defmodule Core.Schema do
     end
 
     def get_by_id(id) do
-        Builder.Repo.get(Builder.Model.Schema,id)
+        Builder.Repo.get(Builder.Model.SysColumn,id)
     end
 
 
     def get_all() do
-        Builder.Repo.all(Builder.Model.Schema)
+        Builder.Repo.all(Builder.Model.SysColumn)
     end
 
     def delete_all() do
-        qiuery = from(s in Builder.Model.Schema, where: s.id > 0)
+        qiuery = from(s in Builder.Model.SysColumn, where: s.id > 0)
         Builder.Repo.delete_all(qiuery)
     end
 
     def delete_by_id(id) do
-        setting = Builder.Repo.get!(Builder.Model.Schema,id)
+        setting = Builder.Repo.get!(Builder.Model.SysColumn,id)
         case Builder.Repo.delete setting do
         {:ok, struct}       -> :ok
         {:error, changeset} -> # Something went wrong

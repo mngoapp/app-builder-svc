@@ -14,3 +14,20 @@
 iex -S mix phx.server
 
 ```
+
+## Run Postgres Database
+
+# Postgres Database as a docker container
+- `docker run --name pixel-auth-postgres -p 5433:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -d postgres`
+
+# Postgres Database Client with PGAdmin as a docker container
+- `docker pull dpage/pgadmin4`
+- docker run -p 8080:80 \
+    -e "PGADMIN_DEFAULT_EMAIL=some_email@domain.com" \
+    -e "PGADMIN_DEFAULT_PASSWORD=postgres" \
+    -d dpage/pgadmin4
+- For pgadmin configuration to connect to authentication database you must specify hostname `host.docker.internal` and port 5433 
+
+## Run MS Sql Server Database
+
+`docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=5678mangoplatform@" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-CU13-ubuntu-20.04`

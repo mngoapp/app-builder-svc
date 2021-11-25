@@ -9,15 +9,15 @@ defmodule MngoAppBuilder.Application do
     children = [
       Builder.Repo,
       # Container GenServer - For managing Container items
-      %{
-        id: ContainerServer,
-        start: {Container.Server, :start_link, [[name: :container_gen_server]]}
-      },
-      # Schema GenServer - For managing Schema items
-      %{
-        id: SchemaServer,
-        start: {Schema.Server, :start_link, [[name: :schema_gen_server]]}
-      },
+      # %{
+      #   id: ContainerServer,
+      #   start: {Container.Server, :start_link, [[name: :container_gen_server]]}
+      # },
+      # # Schema GenServer - For managing Schema items
+      # %{
+      #   id: SchemaServer,
+      #   start: {Schema.Server, :start_link, [[name: :schema_gen_server]]}
+      # },
       # REST API
       MngoAppBuilderWeb.Endpoint,
     ]

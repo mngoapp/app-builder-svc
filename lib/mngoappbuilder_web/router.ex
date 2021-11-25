@@ -10,6 +10,8 @@ defmodule MngoAppBuilderWeb.Router do
     pipe_through :api
     post "/setup", SetupController, :setup
 
+    get "systemcolumns", SystemColumnController, :get_all
+
     get "/containers", ContainerController, :get_all
     get "/containers/:key", ContainerController, :get
     post "/containers", ContainerController, :save

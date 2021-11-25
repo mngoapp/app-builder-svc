@@ -2,7 +2,7 @@ defmodule MngoAppBuilderWeb.ContainerController do
   use MngoAppBuilderWeb, :controller
   action_fallback MngoAppBuilderWeb.FallbackController
   def get_all(conn,_key_params) do
-    results = GenServer.call(:container_gen_server,{:get_all})
+    results = Core.Container.get_all
     json conn |> put_status(:ok), results
   end
 
@@ -12,7 +12,8 @@ defmodule MngoAppBuilderWeb.ContainerController do
     "title" => title,
     "type" => type,
   } = params) do
-    GenServer.cast(:container_gen_server,{:update,key,title,type})
+    Core.Container.update key, title, type
+    #GenServer.cast(:container_gen_server,{:update,key,title,type})
     send_resp(conn, :no_content, "")
   end
 
@@ -21,12 +22,14 @@ defmodule MngoAppBuilderWeb.ContainerController do
     "title" => title,
     "type" => type
   } = params) do
-    GenServer.cast(:container_gen_server,{:save,title,type})
+    Core.Container.save title, type
+    # GenServer.cast(:container_gen_server,{:save,title,type})
     json conn |> put_status(:created), params
   end
 
   def delete(conn,%{"key" => key_params}) do
-    GenServer.cast(:container_gen_server,{:delete,key_params})
+    Core.Container.delete_by_id key_params
+    #GenServer.cast(:container_gen_server,{:delete,key_params})
     send_resp(conn, :no_content, "")
   end
 end

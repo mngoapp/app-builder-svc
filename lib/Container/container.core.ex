@@ -13,7 +13,7 @@
 # Container.Core.save("My App","APP")
 # Container.Core.delete_by_id("52cd171c-70db-43bf-9763-a6160bd7baf4")
 # Container.Core.get_by_id("52cd171c-70db-43bf-9763-a6160bd7baf4")
-defmodule Container.Core do
+defmodule Core.Container do
     import Ecto.Query, only: [from: 2]
     def save(title, type) do
         {result, container_item} = Builder.Repo.insert(%Builder.Model.Container{title: title, type: type})
